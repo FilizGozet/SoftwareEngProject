@@ -15,15 +15,22 @@ public partial class LoginPage : System.Web.UI.Page
 
 
 
-    protected void btn_Click(object sender, EventArgs e)
+    protected void LoginButton_Click(object sender, EventArgs e)
     {
-        if (Membership.ValidateUser(txtKimlikNo.Text, txtSifre.Text))
+        TextBox ad = (TextBox)Login1.FindControl("UserName");
+        TextBox sifre = (TextBox)Login1.FindControl("Password");
+        Literal hata = (Literal)Login1.FindControl("FailureText");
+
+
+        if (Membership.ValidateUser(ad.Text, sifre.Text))
         {
-            FormsAuthentication.RedirectFromLoginPage(txtKimlikNo.Text, true);
+            FormsAuthentication.RedirectFromLoginPage(ad.Text, true);
+            hata.Text = "OLDU";
         }
         else
         {
-            lbhata.Text = "T.C. kimlik numaranız ya da parolanız yanlış.Lütfen tekrar deneyin!";
+            hata.Text = "T.C. kimlik numaranız ya da parolanız yanlış.Lütfen tekrar deneyin!";
+
         }
     }
 }

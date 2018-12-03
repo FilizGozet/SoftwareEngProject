@@ -12,6 +12,9 @@
         <div>
             <asp:LinkButton ID="lbkayit" runat="server" OnClick="lbkayit_Click">Kayıt Ol</asp:LinkButton>
             <asp:LinkButton ID="lbgiris" runat="server" OnClick="lbgiris_Click">Giris Yap</asp:LinkButton>
+
+            <asp:LoginName ID="LoginName1" runat="server" />
+            <asp:LoginStatus ID="LoginStatus1" runat="server" />
         </div>
     </form>
 </body>
