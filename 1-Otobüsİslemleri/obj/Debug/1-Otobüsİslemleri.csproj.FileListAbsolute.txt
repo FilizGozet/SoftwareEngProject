@@ -1,0 +1,9 @@
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\bin\Debug\1-Otobüsİslemleri.exe.config
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\bin\Debug\1-Otobüsİslemleri.exe
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\bin\Debug\1-Otobüsİslemleri.pdb
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\obj\Debug\1-Otobüsİslemleri.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\obj\Debug\_1_Otobüsİslemleri.Properties.Resources.resources
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\obj\Debug\1-Otobüsİslemleri.csproj.GenerateResource.cache
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\obj\Debug\1-Otobüsİslemleri.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\obj\Debug\1-Otobüsİslemleri.exe
+C:\Users\ASUS\source\repos\ProjeDeneme\1-Otobüsİslemleri\obj\Debug\1-Otobüsİslemleri.pdb

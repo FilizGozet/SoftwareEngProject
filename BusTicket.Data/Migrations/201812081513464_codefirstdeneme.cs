@@ -1,0 +1,154 @@
+namespace BusTicket.Data.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class codefirstdeneme : DbMigration
+    {
+        public override void Up()
+        {
+            DropForeignKey("dbo.Tickets", "Staff_ID", "dbo.People");
+            DropForeignKey("dbo.Tickets", "TimeSlot_ID", "dbo.TimeSlots");
+            DropForeignKey("dbo.Seats", "Ticket_ID", "dbo.Tickets");
+            DropForeignKey("dbo.Seats", "Bus_ID", "dbo.Buses");
+            DropForeignKey("dbo.Tickets", "Person_ID", "dbo.People");
+            DropForeignKey("dbo.Tickets", "Route_ID", "dbo.Routes");
+            DropForeignKey("dbo.TimeSlots", "Bus_ID", "dbo.Buses");
+            DropIndex("dbo.Seats", new[] { "Bus_ID" });
+            DropIndex("dbo.Seats", new[] { "Ticket_ID" });
+            DropIndex("dbo.Tickets", new[] { "Person_ID" });
+            DropIndex("dbo.Tickets", new[] { "Route_ID" });
+            DropIndex("dbo.Tickets", new[] { "Staff_ID" });
+            DropIndex("dbo.Tickets", new[] { "TimeSlot_ID" });
+            DropIndex("dbo.TimeSlots", new[] { "Bus_ID" });
+            DropPrimaryKey("dbo.Seats");
+            DropPrimaryKey("dbo.TimeSlots");
+            AddColumn("dbo.Buses", "Plate", c => c.String(nullable: false, maxLength: 15));
+            AddColumn("dbo.Buses", "CoupleSeat", c => c.Boolean(nullable: false));
+            AddColumn("dbo.Routes", "FromWhere", c => c.String(nullable: false, maxLength: 100));
+            AddColumn("dbo.Routes", "UstID", c => c.Int());
+            AddColumn("dbo.Routes", "AppTimeInterval", c => c.Time(nullable: false, precision: 7));
+            AddColumn("dbo.Seats", "Buses_ID", c => c.Int());
+            AddColumn("dbo.Tickets", "Bus_ID", c => c.Int());
+            AddColumn("dbo.Tickets", "Price", c => c.Decimal(storeType: "money"));
+            AddColumn("dbo.Tickets", "People_ID", c => c.Int());
+            AddColumn("dbo.Tickets", "Routes_ID", c => c.Int());
+            AddColumn("dbo.TimeSlots", "Buses_ID", c => c.Int());
+            AlterColumn("dbo.Buses", "Brand", c => c.String(nullable: false, maxLength: 50));
+            AlterColumn("dbo.Buses", "Model", c => c.String(nullable: false, maxLength: 50));
+            AlterColumn("dbo.Buses", "NumberofSeat", c => c.String(nullable: false, maxLength: 100));
+            AlterColumn("dbo.Buses", "IsAvailable", c => c.Boolean(nullable: false));
+            AlterColumn("dbo.Routes", "ToWhere", c => c.String(nullable: false, maxLength: 100));
+            AlterColumn("dbo.Routes", "Price", c => c.Decimal(nullable: false, storeType: "money"));
+            AlterColumn("dbo.People", "IdentificationNumber", c => c.String(nullable: false, maxLength: 15));
+            AlterColumn("dbo.People", "FirstName", c => c.String(nullable: false, maxLength: 50));
+            AlterColumn("dbo.People", "LastName", c => c.String(nullable: false, maxLength: 50));
+            AlterColumn("dbo.People", "Email", c => c.String(maxLength: 80));
+            AlterColumn("dbo.People", "Phone", c => c.String(maxLength: 80));
+            AlterColumn("dbo.People", "Password", c => c.String(maxLength: 10));
+            AlterColumn("dbo.Seats", "SeatPlace", c => c.Boolean(nullable: false));
+            AlterColumn("dbo.Seats", "Bus_ID", c => c.Int(nullable: false));
+            AlterColumn("dbo.Tickets", "Person_ID", c => c.Int(nullable: false));
+            AlterColumn("dbo.Tickets", "Route_ID", c => c.Int(nullable: false));
+            AlterColumn("dbo.Tickets", "TimeSlot_ID", c => c.Int(nullable: false));
+            AlterColumn("dbo.TimeSlots", "ID", c => c.Int(nullable: false));
+            AlterColumn("dbo.TimeSlots", "TimeofDep", c => c.Time(nullable: false, precision: 7));
+            AlterColumn("dbo.TimeSlots", "TimeofArr", c => c.Time(nullable: false, precision: 7));
+            AlterColumn("dbo.TimeSlots", "Bus_ID", c => c.Int(nullable: false));
+            AddPrimaryKey("dbo.Seats", new[] { "SeatNumber", "Bus_ID" });
+            AddPrimaryKey("dbo.TimeSlots", "ID");
+            CreateIndex("dbo.Tickets", "People_ID");
+            CreateIndex("dbo.Tickets", "Routes_ID");
+            CreateIndex("dbo.Seats", "Buses_ID");
+            CreateIndex("dbo.TimeSlots", "Buses_ID");
+            AddForeignKey("dbo.Seats", "Buses_ID", "dbo.Buses", "ID");
+            AddForeignKey("dbo.Tickets", "People_ID", "dbo.People", "ID");
+            AddForeignKey("dbo.Tickets", "Routes_ID", "dbo.Routes", "ID");
+            AddForeignKey("dbo.TimeSlots", "Buses_ID", "dbo.Buses", "ID");
+            DropColumn("dbo.Buses", "LicensePlate");
+            DropColumn("dbo.Buses", "Comportable");
+            DropColumn("dbo.Routes", "WhereFrom");
+            DropColumn("dbo.Routes", "IsMin");
+            DropColumn("dbo.Routes", "TimeInterval");
+            DropColumn("dbo.People", "Gender");
+            DropColumn("dbo.People", "IsMember");
+            DropColumn("dbo.Seats", "ID");
+            DropColumn("dbo.Seats", "CoupleSeat");
+            DropColumn("dbo.Seats", "Ticket_ID");
+            DropColumn("dbo.Tickets", "Fiyat");
+        }
+        
+        public override void Down()
+        {
+            AddColumn("dbo.Tickets", "Fiyat", c => c.Int(nullable: false));
+            AddColumn("dbo.Seats", "Ticket_ID", c => c.Int());
+            AddColumn("dbo.Seats", "CoupleSeat", c => c.String(maxLength: 1));
+            AddColumn("dbo.Seats", "ID", c => c.Int(nullable: false, identity: true));
+            AddColumn("dbo.People", "IsMember", c => c.String(maxLength: 1));
+            AddColumn("dbo.People", "Gender", c => c.String(maxLength: 1));
+            AddColumn("dbo.Routes", "TimeInterval", c => c.Int(nullable: false));
+            AddColumn("dbo.Routes", "IsMin", c => c.String(maxLength: 1));
+            AddColumn("dbo.Routes", "WhereFrom", c => c.String());
+            AddColumn("dbo.Buses", "Comportable", c => c.String(maxLength: 1));
+            AddColumn("dbo.Buses", "LicensePlate", c => c.Int(nullable: false));
+            DropForeignKey("dbo.TimeSlots", "Buses_ID", "dbo.Buses");
+            DropForeignKey("dbo.Tickets", "Routes_ID", "dbo.Routes");
+            DropForeignKey("dbo.Tickets", "People_ID", "dbo.People");
+            DropForeignKey("dbo.Seats", "Buses_ID", "dbo.Buses");
+            DropIndex("dbo.TimeSlots", new[] { "Buses_ID" });
+            DropIndex("dbo.Seats", new[] { "Buses_ID" });
+            DropIndex("dbo.Tickets", new[] { "Routes_ID" });
+            DropIndex("dbo.Tickets", new[] { "People_ID" });
+            DropPrimaryKey("dbo.TimeSlots");
+            DropPrimaryKey("dbo.Seats");
+            AlterColumn("dbo.TimeSlots", "Bus_ID", c => c.Int());
+            AlterColumn("dbo.TimeSlots", "TimeofArr", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.TimeSlots", "TimeofDep", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.TimeSlots", "ID", c => c.Int(nullable: false, identity: true));
+            AlterColumn("dbo.Tickets", "TimeSlot_ID", c => c.Int());
+            AlterColumn("dbo.Tickets", "Route_ID", c => c.Int());
+            AlterColumn("dbo.Tickets", "Person_ID", c => c.Int());
+            AlterColumn("dbo.Seats", "Bus_ID", c => c.Int());
+            AlterColumn("dbo.Seats", "SeatPlace", c => c.String());
+            AlterColumn("dbo.People", "Password", c => c.String());
+            AlterColumn("dbo.People", "Phone", c => c.String());
+            AlterColumn("dbo.People", "Email", c => c.String());
+            AlterColumn("dbo.People", "LastName", c => c.String(nullable: false, maxLength: 20));
+            AlterColumn("dbo.People", "FirstName", c => c.String(nullable: false, maxLength: 15));
+            AlterColumn("dbo.People", "IdentificationNumber", c => c.String(nullable: false));
+            AlterColumn("dbo.Routes", "Price", c => c.Int(nullable: false));
+            AlterColumn("dbo.Routes", "ToWhere", c => c.String());
+            AlterColumn("dbo.Buses", "IsAvailable", c => c.String(maxLength: 1));
+            AlterColumn("dbo.Buses", "NumberofSeat", c => c.Int(nullable: false));
+            AlterColumn("dbo.Buses", "Model", c => c.String());
+            AlterColumn("dbo.Buses", "Brand", c => c.String());
+            DropColumn("dbo.TimeSlots", "Buses_ID");
+            DropColumn("dbo.Tickets", "Routes_ID");
+            DropColumn("dbo.Tickets", "People_ID");
+            DropColumn("dbo.Tickets", "Price");
+            DropColumn("dbo.Tickets", "Bus_ID");
+            DropColumn("dbo.Seats", "Buses_ID");
+            DropColumn("dbo.Routes", "AppTimeInterval");
+            DropColumn("dbo.Routes", "UstID");
+            DropColumn("dbo.Routes", "FromWhere");
+            DropColumn("dbo.Buses", "CoupleSeat");
+            DropColumn("dbo.Buses", "Plate");
+            AddPrimaryKey("dbo.TimeSlots", "ID");
+            AddPrimaryKey("dbo.Seats", "ID");
+            CreateIndex("dbo.TimeSlots", "Bus_ID");
+            CreateIndex("dbo.Tickets", "TimeSlot_ID");
+            CreateIndex("dbo.Tickets", "Staff_ID");
+            CreateIndex("dbo.Tickets", "Route_ID");
+            CreateIndex("dbo.Tickets", "Person_ID");
+            CreateIndex("dbo.Seats", "Ticket_ID");
+            CreateIndex("dbo.Seats", "Bus_ID");
+            AddForeignKey("dbo.TimeSlots", "Bus_ID", "dbo.Buses", "ID");
+            AddForeignKey("dbo.Tickets", "Route_ID", "dbo.Routes", "ID");
+            AddForeignKey("dbo.Tickets", "Person_ID", "dbo.People", "ID");
+            AddForeignKey("dbo.Seats", "Bus_ID", "dbo.Buses", "ID");
+            AddForeignKey("dbo.Seats", "Ticket_ID", "dbo.Tickets", "ID");
+            AddForeignKey("dbo.Tickets", "TimeSlot_ID", "dbo.TimeSlots", "ID");
+            AddForeignKey("dbo.Tickets", "Staff_ID", "dbo.People", "ID");
+        }
+    }
+}

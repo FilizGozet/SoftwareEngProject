@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Business", "2 - Business", "{5069F63C-CBAE-4A58-A751-ECE5030D5B67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - UI", "3 - UI", "{84E5844C-E3AF-49F9-AC48-6DA7C097A1A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Domain", "0 - Domain", "{9D118E7C-4C46-49D8-8205-3583CD049E1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Data", "1- Data", "{C2A91E24-35DD-4DAF-8D92-C52CEDE1FFCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicket.Entity", "BusTicket.Entity\BusTicket.Entity.csproj", "{042FA02C-241E-4819-9958-C875E196557C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicket.Data", "BusTicket.Data\BusTicket.Data.csproj", "{975523B7-7BAD-42EA-8B50-5D275E3A9D33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicket.Business", "BusTicket.Business\BusTicket.Business.csproj", "{16197876-5130-40E2-84BD-9F7832A46DEA}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSitem", "WebSitem\", "{A767C8B5-ACCB-401F-B95C-6867978ED685}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{16197876-5130-40e2-84bd-9f7832a46dea}|BusTicket.Business.dll;{042fa02c-241e-4819-9958-c875e196557c}|BusTicket.Entity.dll;{975523B7-7BAD-42EA-8B50-5D275E3A9D33}|BusTicket.Data.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60090"
+		Debug.AspNetCompiler.PhysicalPath = "WebSitem\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60090\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60090"
+		Release.AspNetCompiler.PhysicalPath = "WebSitem\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60090\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60090"
+		SlnRelativePath = "WebSitem\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{042FA02C-241E-4819-9958-C875E196557C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042FA02C-241E-4819-9958-C875E196557C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042FA02C-241E-4819-9958-C875E196557C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042FA02C-241E-4819-9958-C875E196557C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{975523B7-7BAD-42EA-8B50-5D275E3A9D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{975523B7-7BAD-42EA-8B50-5D275E3A9D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{975523B7-7BAD-42EA-8B50-5D275E3A9D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{975523B7-7BAD-42EA-8B50-5D275E3A9D33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16197876-5130-40E2-84BD-9F7832A46DEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16197876-5130-40E2-84BD-9F7832A46DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16197876-5130-40E2-84BD-9F7832A46DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16197876-5130-40E2-84BD-9F7832A46DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A767C8B5-ACCB-401F-B95C-6867978ED685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A767C8B5-ACCB-401F-B95C-6867978ED685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A767C8B5-ACCB-401F-B95C-6867978ED685}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A767C8B5-ACCB-401F-B95C-6867978ED685}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{042FA02C-241E-4819-9958-C875E196557C} = {9D118E7C-4C46-49D8-8205-3583CD049E1F}
+		{975523B7-7BAD-42EA-8B50-5D275E3A9D33} = {C2A91E24-35DD-4DAF-8D92-C52CEDE1FFCB}
+		{16197876-5130-40E2-84BD-9F7832A46DEA} = {5069F63C-CBAE-4A58-A751-ECE5030D5B67}
+		{A767C8B5-ACCB-401F-B95C-6867978ED685} = {84E5844C-E3AF-49F9-AC48-6DA7C097A1A2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11C4AFE7-6FAA-4A09-BA5B-0D5DD8F7C785}
+	EndGlobalSection
+EndGlobal
